@@ -26,7 +26,7 @@ import java.util.Random;
  */
 
 public class App {
-    static int[] tamanhosTesteGrande =  { 125_000, 250_000, 500_000, 1_000_000, 2_000_000 };
+    static int[] tamanhosTesteGrande =  { 500_000, 1_000_000, 2_000_000, 3_000_000, 5_000_000, 10_000_000 };
     static int[] tamanhosTesteMedio =   {  12_500,  25_000,  50_000,   100_000,   200_000 };
     static int[] tamanhosTestePequeno = {       3,       6,      12,        24,        48 };
     static Random aleatorio = new Random(42);
@@ -103,6 +103,15 @@ public class App {
         
     }
     public static void main(String[] args) {
-        
+        // para cada codigo,
+        // itere sobre o array de tamanhos de teste correspondente
+        // rode o codigo,
+        // salve o tempo de execuçao do mesmo.
+
+        // marcar o tempo de inicio
+
+        // executar o codigo
+
+        // marcar o tempo de fim
     }
 }
