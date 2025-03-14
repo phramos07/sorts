@@ -1,4 +1,7 @@
 import java.util.Random;
+import java.util.function.Consumer;
+import sorts.Bubblesort;
+import java.util.Arrays;
 
 /** 
  * MIT License
@@ -64,7 +67,7 @@ public class App {
      * Código de teste 3. Este método...
      * @param vetor Vetor com dados para teste.
      */
-    static void codigo3(int[] vetor) {
+    static int codigo3(int[] vetor) {
         for (int i = 0; i < vetor.length - 1; i++) {
             int menor = i;
             for (int j = i + 1; j < vetor.length; j++) {
@@ -75,6 +78,8 @@ public class App {
             vetor[i] = vetor[menor];
             vetor[menor] = temp;
         }
+
+        return 0;
     }
 
     /**
@@ -99,19 +104,21 @@ public class App {
         for (int i = 0; i < tamanho; i++) {
             vetor[i] = aleatorio.nextInt(1, tamanho/2);
         }
-        return vetor;
-        
+        return vetor; 
     }
     public static void main(String[] args) {
-        // para cada codigo,
-        // itere sobre o array de tamanhos de teste correspondente
-        // rode o codigo,
-        // salve o tempo de execuçao do mesmo.
+        int[] vec = gerarVetor(10);
+        for (int i = 0; i < vec.length; i++) {
+            System.out.print(vec[i] + " ");
+        }
+        System.out.println();
 
-        // marcar o tempo de inicio
-
-        // executar o codigo
-
-        // marcar o tempo de fim
+        Integer[] boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
+        Bubblesort<Integer> bubble = new Bubblesort<>();
+        var sorted = bubble.sort(boxedVec);
+        
+        for (int i = 0; i < sorted.length; i++) {
+            System.out.print(sorted[i] + " ");
+        }
     }
 }
