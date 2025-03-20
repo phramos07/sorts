@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.function.Consumer;
 import sorts.Bubblesort;
 import java.util.Arrays;
 
@@ -100,25 +99,26 @@ public class App {
      * @return Vetor com dados aleatórios, com valores entre 1 e (tamanho/2), desordenado.
      */
     static int[] gerarVetor(int tamanho){
-        int[] vetor = new int[tamanho];
+        var vetor = new int[tamanho];
         for (int i = 0; i < tamanho; i++) {
             vetor[i] = aleatorio.nextInt(1, tamanho/2);
         }
         return vetor; 
     }
     public static void main(String[] args) {
-        int[] vec = gerarVetor(10);
-        for (int i = 0; i < vec.length; i++) {
-            System.out.print(vec[i] + " ");
-        }
+        var vec = gerarVetor(10);
+        Arrays.stream(vec).forEach(
+            num -> System.out.print(num + " ")
+        );
+
         System.out.println();
 
-        Integer[] boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
-        Bubblesort<Integer> bubble = new Bubblesort<>();
+        var boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
+        var bubble = new Bubblesort<Integer>();
         var sorted = bubble.sort(boxedVec);
         
-        for (int i = 0; i < sorted.length; i++) {
-            System.out.print(sorted[i] + " ");
-        }
+        Arrays.stream(sorted).forEach(
+            num -> System.out.print(num + " ")
+        );
     }
 }
