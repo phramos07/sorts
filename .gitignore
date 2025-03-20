@@ -36,3 +36,5 @@
 **/*.exe
 
 desktop.ini
+
+/bin
