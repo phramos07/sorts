@@ -1,5 +1,8 @@
 import java.util.Random;
 import sorts.Bubblesort;
+// import sorts.Mergesort;
+import sorts.Mergesort;
+
 import java.util.Arrays;
 
 /** 
@@ -106,7 +109,7 @@ public class App {
         return vetor; 
     }
     public static void main(String[] args) {
-        var vec = gerarVetor(10);
+        var vec = gerarVetor(20);
         Arrays.stream(vec).forEach(
             num -> System.out.print(num + " ")
         );
@@ -114,8 +117,9 @@ public class App {
         System.out.println();
 
         var boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
-        var bubble = new Bubblesort<Integer>();
-        var sorted = bubble.sort(boxedVec);
+        // var sortAlg = new Bubblesort<Integer>();
+        var sortAlg = new Mergesort<Integer>();
+        var sorted = sortAlg.sort(boxedVec);
         
         Arrays.stream(sorted).forEach(
             num -> System.out.print(num + " ")
