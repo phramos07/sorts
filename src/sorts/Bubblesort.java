@@ -6,7 +6,7 @@ public class Bubblesort<T extends Comparable<T>> implements ISorter<T> {
         private int comparisons = 0;
         private int swaps = 0;
         private Utils<T> utils = new Utils<T>();
-        private int time = 0; // in ms
+        private long time = 0; // in ms
     
         @Override
         public T[] sort(T[] dados) {
@@ -41,7 +41,7 @@ public class Bubblesort<T extends Comparable<T>> implements ISorter<T> {
         }
     
         @Override
-        public int getTime() {
+        public long getTime() {
             // retornar o tempo decorrido
             return time;
         }
@@ -54,7 +54,7 @@ public class Bubblesort<T extends Comparable<T>> implements ISorter<T> {
         private void startTime() {
             // inicializa o temporizador
         }
-
+        
         private void endTime() {
             // finaliza o temporizador
         }

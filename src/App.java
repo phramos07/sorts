@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.Scanner;
+
 import sorts.Bubblesort;
 // import sorts.Mergesort;
 import sorts.Mergesort;
@@ -34,6 +36,8 @@ public class App {
     static int[] tamanhosTesteGrande =  { 500_000, 1_000_000, 2_000_000, 3_000_000, 5_000_000, 10_000_000 };
     static int[] tamanhosTesteMedio =   {  12_500,  25_000,  50_000,   100_000,   200_000 };
     static int[] tamanhosTestePequeno = {       3,       6,      12,        24,        48 };
+
+    static Scanner scanner = new Scanner(System.in);
     static Random aleatorio = new Random(42);
 
     /**
@@ -109,20 +113,21 @@ public class App {
         return vetor; 
     }
     public static void main(String[] args) {
-        var vec = gerarVetor(20);
+        System.out.print("Digite o tamanho do vetor: ");
+        int size = scanner.nextInt();
+        scanner.close();
+
+        var vec = gerarVetor(size);
+        
+        System.out.println("Array original:");
         Arrays.stream(vec).forEach(
             num -> System.out.print(num + " ")
         );
-
         System.out.println();
-
-        var boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
-        // var sortAlg = new Bubblesort<Integer>();
-        var sortAlg = new Mergesort<Integer>();
-        var sorted = sortAlg.sort(boxedVec);
         
-        Arrays.stream(sorted).forEach(
-            num -> System.out.print(num + " ")
-        );
+        var boxedVec = Arrays.stream(vec).boxed().toArray(Integer[]::new);
+        var sortAlg = new Mergesort<Integer>();
+
+        sortAlg.sort(boxedVec);
     }
 }
